@@ -1,0 +1,47 @@
+{% extends 'based.html'%}
+{% load static %}
+{% block content%}
+  <h1 class="text-center text-light">{{pro.name}}
+  </h1>
+  <hr>  
+
+  <div class="container-fluid" dir="rtl">
+    <div class="row justify-content-center"style="background-color:#343a4099;border-radius:7px;padding:20px">
+      <!-- bisic -->
+       {% for pro in pro%} 
+          <div class="card bg-dark col-lg-3 col-md-4 col-sm-6 col-xs-12 card-product">
+            {%if pro.photo.url != null%}
+            <img src="{{pro.photo.url}}" class="card-img-top" alt="..." style="height:180px">
+            {%else%}
+            <img src="{% static "imageprod/1.png" %}" class="card-img-top" alt="..." style="height:180px">
+            {%endif%}
+            <div class="card-body text-light text-center" >
+              <h5 class="card-title">{{pro.name}}</h5>
+              <p class="card-text text-truncate">{{pros.discription}}</p>
+              {%if request.user.is_authenticated%}
+                <form action = "{%url 'add_to_cart' pro_id=1%}" > 
+                  <input type='hidden' name='proid' value='{{pro.id}}'>
+                  <div class="mb-3">
+                    {% comment %} <label for="exampleInputEmail1" class="form-label">الكمية</label> {% endcomment %}
+                    <div 
+                    class = 'col'><a href="{% url 'showdetails' det_id=pro.id  %}" class="btn btn-primary" value='{{pro.id}}' name='details' >عرض التفاصيل</a>
+                    </div>
+                  </div>
+                  <div class="modal-footer row">
+                    {% comment %} <div class='col'><button type="submit" class="btn btn-primary"> add<i class="fa fa-shopping-cart"></i></button></div> {% endcomment %}
+                    {% comment %} <div class = 'col'><a href="{% url 'product_favorit' pro_id=pro.id%}"class="fa fa-star-o" style="font-size:66px;color:red"></a></div> {% endcomment %}
+                  </div>
+                </form>
+              
+              {% comment %} <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalregister" name="proid" >{{pro.id}} احجز</button> {% endcomment %}
+              {%else%}
+              {% comment %} <a href="{% url 'product_favorit' pro_id=pro.id%}"><button type="button" class="btn btn-primary" >add</button></a> {% endcomment %}
+              <a href = "{%url 'sinin'%}"><button type="button" class="btn btn-primary" >تسجيل الدخول</button></a>
+              {%endif%}
+            </div>
+            <div class="product-quantity" >{{pro.quantityproduct}}</div>   
+          </div>
+        {%endfor%}
+    </div>
+  </div>
+{% endblock%}

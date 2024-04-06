@@ -1,0 +1,41 @@
+{%extends 'based.html'%}
+{%block title%}Profile{%endblock%}
+{%block content%}
+<hr class="my-4">
+<div class="fixedimg fixedimg3"></div>
+<div class='container'>
+    <div class="form-container  divbsinup bg-dark text-light "dir = 'rtl'>
+ 
+      <h2>profile :تعديل</h2>
+      <hr>
+      {%include 'partials/_alertmessage.html'%}
+      {%if request.user.is_authenticated%}
+        <form method="POST">
+          {%csrf_token%}
+          <label for="name">Name:الاسم</label><br>
+          <input type="text"  name="username" autocomplete="off" value="{{name}}"  readonly><br>
+          <label for="password">email:الاميل</label><br>
+          <input type="email"  name="email"  autocomplete="off" value = "{{email}}" readonly><br>
+          <label for="password">Password:كلمة المرور</label><br>
+          <input type="password" name="password" autocomplete='off' value="{{password}}" ><br>
+          <div class = 'row'>
+            <div class = 'col'>
+              <label for = "address">address:العنوان</label>
+               <input type='text' id='address' name='address' autocomplete='off' value="{{address}}" >
+            </div>
+            <div class = 'col'>
+              <label for = "city">city:المدينة</label>
+              <input type='text'  name='city' autocomplete='off' value="{{city}}" >
+            </div>
+          </div>
+          <button type="submit" name = 'btnprofile'>save</button>
+        </form>
+        </form>
+      {%else%}
+      <h3>you must register in the web <a href="{%url 'sinin'%}">register now</a></h3>
+      {%endif%}
+      </div>
+</div>
+  <hr class="my-4">
+  <div class="fixedimg fixedimg3"></div>
+{%endblock%}

@@ -1,0 +1,52 @@
+{%extends 'based.html'%}
+{%block content%}
+<div class="container mt-6">
+    <div class="row justify-content-center " dir='rtl'>
+        {% include "partials/_alertmessage.html" %}
+        <div class="col-md-6">
+            <div class="card bg-dark ">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">خدمة الدفع الإلكتروني</h4>
+                </div>
+                {%if not request.user.is_authenticated or request.user.is_anonymous %}
+                <div class="alert alert-warning  text-center m-3">
+                    <h4 class="mb-0">يرجى تسجيل الدخول <a href = "{%url 'sinin'%}"> تسجيل الدخول</a></h4>
+                </div>
+                {%else%}
+                {%if not order%}
+                <div class="alert alert-warning  text-center m-3">
+                    <h4 class="mb-0">لايوجد طلب هنا</a></h4>
+                </div>
+                {%else%}
+                <div class="card-body text-light">
+                    <form action = "{%url 'pyment'%}" method = 'POST'>
+                        {%csrf_token%}
+                        {% comment %} <div class="form-group">
+                            <label for="name">اسم العميل</label>
+                            <input type="text" class="form-control" id="name" value="{{order.user.username}}" readonly placeholder="ادخل اسمك">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardNumber">رقم البطاقة</label>
+                            <input type="text" class="form-control" id="cardNumber" name='cardNumber' placeholder="ادخل رقم بطاقتك">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="expiryDate">تاريخ الانتهاء</label>
+                                <input type="text" class="form-control" name='cardDate' id="expiryDate" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cvv">CVV</label>
+                                <input type="text" class="form-control" id="cvv" name='cardVcc' placeholder="ادخل رمز CVV">
+                            </div>
+                        </div> {% endcomment %}
+                        <button type="submit" class="btn btn-success btn-block" name='pymentadd'>إتمام الدفع</button>
+                    </form>
+                </div>
+                {%endif%}
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

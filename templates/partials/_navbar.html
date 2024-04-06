@@ -1,0 +1,78 @@
+{%load static%}
+<nav class="navbar navbar-expand-lg fixed-top  navbar-dark bg-dark " >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="border-right: 1px solid #aaa;padding-right: 10px;">
+          <img src="{%static 'softimage.png'%}" alt="" style="width: 160px;height:50px; padding-right: 10px;">
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {%if request.user.is_authenticated%}
+              مرحبا بك 
+              {%else%}
+              انظم الينا
+              {%endif%} 
+            </a>
+            {%if request.user.is_authenticated%}
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{%url 'profile'%}">تعديل حساب</a></li>
+              <li><a class="dropdown-item" href="{%url 'showproduct_favorit'%}">المفضلة</a></li>
+              <li><a class="dropdown-item" href="{%url 'show_order'%}">عرض الطلبات</a></li>
+              <li><a class="dropdown-item" href="{%url 'showCart'%}">سلة الطلبات
+              </a></li>
+              <li><a class="dropdown-item" href="{%url 'logout'%}">تسجيل الخروج</a></li>
+            </ul>
+            {%else%}
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{%url 'sinin' %}">تسجيل الدخول</a></li>
+              <li><a class="dropdown-item" href="{%url 'sinup'%}">انشاء حساب</a></li>
+            </ul>
+            {%endif%}
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              اجهزة كهربائية
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{%url 'tables' pro_id=11%}">ثلاجات</a></li>
+              <li><a class="dropdown-item" href="{%url 'tables' pro_id=5%}">مكيف  تبريد</a></li>
+              <li><a class="dropdown-item" href="{%url 'tables' pro_id=9%}">مكنسة كهربائية</a></li>
+              <li><a class="dropdown-item" href="{%url 'tables' pro_id=10%}">مكينة اعداد القهوة</a></li>
+              <li><a class="dropdown-item" href="{% url 'tables' pro_id=4%}">إضاءات</a></li>
+            </ul>
+          </li>
+      
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'tables' pro_id=6%}">صوتيات</a>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'tables' pro_id=3%}">شاشات</a>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'tables' pro_id=2%}">كراسي</a>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{%url 'tables' pro_id=1%}">طاولات</a>
+            </li> 
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'index'%}">الصفحة الرئيسية</a>
+            </li>
+        </ul>
+        <form class="d-flex" role="search" style="margin-right: 10px;" action="{%url 'detals'%}">
+          <div class="row">
+            <div class='col'>
+              <input style='width: 318px;padding: 11px;' class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name='searchname'>
+            </div>
+            <div class='col'>
+              <button class="btn btn-outline-info" type="submit"data-toggle="modal">بحث</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- Modal -->

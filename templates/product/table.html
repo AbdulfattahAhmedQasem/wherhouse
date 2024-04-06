@@ -1,0 +1,39 @@
+{% extends 'based.html'%}
+{% load static %}
+{%block title%}{{cat.name}}{%endblock%}
+{% block content%}
+<hr>
+  <h1 class="text-center text-light">مجموعة {{cat.name}}
+  </h1>
+  <h2>
+    {%include 'partials/_alertmessage.html'%}
+  </h2>
+  <div class="container-fluid" dir="rtl">
+    <div class="row justify-content-center"style="background-color:#343a4099;border-radius:7px;padding:20px">
+      <!-- bisic -->
+       {% for pro in pro%} 
+          <div class="card bg-dark col-lg-3 col-md-4 col-sm-6 col-xs-12 card-product">
+            {%if pro.photo.url != null%}
+             <img src="{{pro.photo.url}}" class="card-img-top" alt="..." style="height:180px">
+             {%else%}
+             <img src="{% static "imageprod/1.png" %}" class="card-img-top" alt="..." style="height:180px">
+             {%endif%}
+            <div class="card-body text-light text-center" >
+              <h5 class="card-title">{{pro.name}}</h5>
+              <p class="card-text text-truncate">{{pros.discription}}</p>
+              {%if request.user.is_authenticated%}
+                    <div class = 'col'><a href="{% url 'showdetails' det_id=pro.id  %}" class="btn btn-primary" value='{{pro.id}}' name='details' >عرض التفاصيل</a>
+                    </div>
+              
+              {% comment %} <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalregister" name="proid" >{{pro.id}} احجز</button> {% endcomment %}
+              {%else%}
+              {% comment %} <a href="{% url 'product_favorit' pro_id=pro.id%}"><button type="button" class="btn btn-primary" >add</button></a> {% endcomment %}
+              <a href = "{%url 'sinin'%}"><button type="button" class="btn btn-primary" >تسجيل الدخول</button></a>
+              {%endif%}
+            </div>
+            <div class="product-quantity" >{{pro.quantityproduct}}</div>   
+          </div>
+        {%endfor%}
+    </div>
+  </div>
+{% endblock%}

@@ -1,0 +1,763 @@
+<div>
+    <section>
+        <div class="row">
+            <b class="col">
+                no:
+                <input type="text"/>
+                رقم أمر العمل <span id="job-order-no"></span>
+            </b>
+            <b  class='col' style="float: right; margin-right:10px">
+                date:
+                {{ forms.date }}
+                {% comment %} <input type="date"> {% endcomment %}
+                : التاريخ<span id="job-order-on"></span>
+            </b>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <b class="col">
+                job order type
+            </b>
+                <div class="col-6 div-select" >
+                    {{forms.jobOrderType}}
+                </div>
+            <strong class='col typeorder' style = "float: right;margin-right:10px" >
+                نوع امر العمل
+            </strong>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <span class='col'> {{forms.proimg}} اختر صورة البوث</span>
+             <span class = 'col'> اختر المفات الخاصة بالبوث{{forms.pdffile}}</span>
+               {% comment %} <img src="s.jpg" class="img-responsive img-thumbnail" alt=""> {% endcomment %}
+           </div>
+    </section>
+    <div class="row">
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>client-name:</b>
+                 {{ forms.clientName }}
+                 {% comment %} <input class="in-put" type="text"> {% endcomment %}
+                 <b>:اسم العميل</b>
+             </section>
+        </div>
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>Coordination at the:</b>
+                 {{forms.coordination}}
+                 {% comment %} <input class="in-put" type="text"> {% endcomment %}
+                 <b>:مسؤول التنسيق بالموقع</b>
+             </section>
+        </div>
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>project-manager:</b>
+                 {{forms.projectManager}}
+                 {% comment %} <input class="in-put" type="text"> {% endcomment %}
+                 <b>:مدير المشروع</b>
+             </section>
+        </div>
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>Venue/Location:</b>
+                 {{forms.venueLocation}}
+                 {% comment %} <input class="in-put" type="text"> {% endcomment %}
+                 <b>:مكان التركيب</b>
+             </section>
+        </div>
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>installation-date:</b>
+                 {{forms.installationDate}}
+                 {% comment %} <input class="in-put" type="date"> {% endcomment %}
+                 <b>:تاريخ التركيب</b>
+             </section>
+        </div>
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>installation-time:</b>
+                 {{forms.installationTime}}
+                 {% comment %} <input class="in-put" type="time"> {% endcomment %}
+                 <b>:وقت التركيب</b>
+             </section>
+        </div>
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>opening-date:</b>
+                 {{forms.openingDate}}
+                 {% comment %} <input class="in-put" type="date"> {% endcomment %}
+                 <b>:تاريخ الافتتاح</b>
+             </section>
+        </div>
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>Opening-time:</b>
+                 {{forms.openingTime}}
+                 {% comment %} <input class="in-put" type="time"> {% endcomment %}
+                 <b>:وقت الافتتاح</b>
+             </section>
+        </div>
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>Dismantle-date:</b>
+                 {{forms.dismantleDate}}
+                 {% comment %} <input class="in-put" type="date"> {% endcomment %}
+                 <b>:تاريخ الفك</b>
+             </section>
+        </div>
+        <div class="col-6">
+             <section class="sec-btn" >
+                 <b>Dismantle-time:</b>
+                 {{forms.dismantleTime}}
+                 {% comment %} <input class="in-put" type="time"> {% endcomment %}
+                 <b>:وقت الفك</b>
+             </section>
+        </div>
+        <div class="col">
+         <section class="sec-btn" >
+             <b>hand-over-Date/Time:</b>
+             <div class='text-center handOverDateTime'>{{forms.handOverDateTime}}</div>
+             {% comment %} <input class="in-put" type="datetime-local" style="width:50%;margin-left:50px"> {% endcomment %}
+             <b style="float:right">:تاريخ ووقت تسليم المشروع</b>
+         </section>
+         <div class="d-flex justify-content-center">
+           {{forms.note}}
+          {% comment %} <textarea name="message" rows="8" cols="80" placeholder="Enter your message here"></textarea></div> {% endcomment %} 
+    </div>
+    <div class='d-flex justify-content-center'>
+        <input class='submitsend' type='submit'>
+     </div>
+</div>
+//////////////////////////////////////////////
+div class="mb-3 ">
+                    <div class = 'row'>
+                        <div class = 'col-8'>
+                            <div class = 'row g-3 align-items-center'>
+                                <div class = 'col-auto'>
+                                    <label class = 'col-form-label'>no</label>
+                                </div>
+                                <div class = 'col-auto'>
+                                    {{forms.numberproject}}
+                                </div>
+                                <div class = 'col-auto'>
+                                    <label class = 'col-form-label'>رقم امر العمل</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = 'col-4'>
+                            <div class = 'row g-3 align-items-center'>
+                                <div class = 'col-auto'>
+                                    <label class = 'col-form-label'>date</label>
+                                </div>
+                                <div class = 'col-auto'>
+                                    {{forms.date}}
+                                </div>
+                                <div class = 'col-auto'>
+                                    <label class = 'col-form-label'>التاريخ</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--start lin tow-->
+                    <div class = 'row div-secandline'>
+                        <div class = 'col-2'>
+                            <label class = 'col-form-label'>job-order-type</label>
+                        </div>
+                        <div class = 'col-8'>
+                                <div class='m-3 text-center div-select'>
+                                    {{forms.jobOrderType}}
+                                </div>
+                        </div>
+                        <div class = 'col-2'>
+                            <label class = 'col-form-label'>نوع امر العمل</label>
+                        </div>
+                        
+                    </div>
+                </div>
+                //////////////////////////////////////////////////////////////
+
+      
+          
+  
+          <label for="id_handOverDateTime">HandOverDateTime:</label>
+      
+      
+      
+      <input type="datetime-local" name="handOverDateTime" required="" id="id_handOverDateTime">
+          
+      </div>
+      
+        <div>
+          <label for="id_note">Note:</label>
+      
+      
+      
+     
+          
+      </div>
+      
+        <div>
+          <label for="id_proimg">Proimg:</label>
+      
+      
+      
+      <input type="file" name="proimg" accept="image/*" id="id_proimg">
+          
+      </div>
+      
+        <div>
+          <label for="id_pdffile">Pdffile:</label>
+      
+      
+      
+   
+          
+            
+          
+      </div>
+                          <input type="date" name="date" required="" id="id_date">
+                        </div>
+                    </div>
+                  </div>
+               
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+class jobOrderForm(models.Model):
+    ordertype = (
+        ('sample', 'عينة'),
+        ('rent', 'إيجار'),
+        ('sale', 'بيع')
+    )
+    
+    numberproject = models.IntegerField()
+    date = models.DateField()
+    jobOrderType = models.CharField(max_length=100, choices=ordertype)
+    clientName = models.CharField(max_length=100)
+    coordination = models.CharField(max_length=100)
+    projectManager = models.CharField(max_length=100)
+    venueLocation = models.CharField(max_length=100)
+    installationDate = models.DateField()
+    installationTime = models.TimeField()
+    openingDate = models.DateField()
+    openingTime = models.TimeField()
+    dismantleDate = models.DateField()
+    dismantleTime = models.TimeField()
+    handOverDateTime = models.DateTimeField()
+    note = models.CharField(max_length=250)
+    proimg = models.ImageField(upload_to='proimg/%Y/%m/%d/', default='default_photo.jpg')
+    pdffile = models.FileField(upload_to='uploads/pdffiles', default='default.pdf')
+
+    def __str__(self):
+        return f"orderid {self.id}"
+
+class Order(models.Model):
+    jobordernumber = models.IntegerField(default=0)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    order_date = models.DateField()
+    order_details = models.ManyToManyField('product', through='OrderDetails') 
+    is_finished = models.BooleanField(default=False)
+    total = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    items_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'user: {self.user.username}, orderid: {self.id}'
+
+class OrderDetails(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+
+    def __str__(self):
+        return f'user: {self.order.user.username}, product: {self.product.name}, orderid: {self.order.id}'
+
+    class Meta:
+        ordering = ['id']
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    # Add other fields as needed
+
+    def __str__(self):
+        return self.name
+
+
+
+  
+        <input type="hidden" name="csrfmiddlewaretoken" value="NSCYcOxs9h22JUEDw86KYvO3cG1HySvKu9F68r3SiYrF4T3QX7x1kqJeRyKGY58G">
+
+
+
+
+
+
+
+
+
+        ///////////////////////////////////
+
+        <form enctype="multipart/form-data" method="post" id="joborderform_form" novalidate=""><input type="hidden" name="csrfmiddlewaretoken" value="VfrpKDSoflWAJ8S2Y8agE6414d9JFO0pCwuxGgoOo2ld47hfp7Bx01ZcJ5SI51Dl">
+            <div>
+            
+            
+            
+            
+            
+            
+            
+              <fieldset class="module aligned ">
+                
+                
+                
+                    <div class="form-row field-numberproject">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_numberproject">Numberproject:</label>
+                                            
+                                                <input type="number" name="numberproject" value="142635" class="vIntegerField" required="" id="id_numberproject">
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-date">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_date">Date:</label>
+                                            
+                                                <p class="date">
+              <input type="text" name="date" value="2024-02-27" class="vDateField" size="10" required="" id="id_date"><span class="datetimeshortcuts">&nbsp;<a href="#">اليوم</a>&nbsp;|&nbsp;<a href="#" id="calendarlink0"><span class="date-icon" title="إختر تاريخ "></span></a></span>
+            
+            
+            <div class="help timezonewarning">ملاحظة: أنت متقدم بـ 3 ساعة من وقت الخادم.</div></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-jobOrderType">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_jobOrderType">JobOrderType:</label>
+                                            
+                                                <select name="jobOrderType" required="" id="id_jobOrderType">
+              <option value="">---------</option>
+            
+              <option value="sample" selected="">عينة</option>
+            
+              <option value="rent">إيجار</option>
+            
+              <option value="sale">بيع</option>
+            
+            </select>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-clientName">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_clientName">ClientName:</label>
+                                            
+                                                <input type="text" name="clientName" value="ahmed" class="vTextField" maxlength="100" required="" id="id_clientName">
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-coordination">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_coordination">Coordination:</label>
+                                            
+                                                <input type="text" name="coordination" value="alin" class="vTextField" maxlength="100" required="" id="id_coordination">
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-projectManager">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_projectManager">ProjectManager:</label>
+                                            
+                                                <input type="text" name="projectManager" value="slem" class="vTextField" maxlength="100" required="" id="id_projectManager">
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-venueLocation">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_venueLocation">VenueLocation:</label>
+                                            
+                                                <input type="text" name="venueLocation" value="ddd" class="vTextField" required="" id="id_venueLocation">
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-installationDate">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_installationDate">InstallationDate:</label>
+                                            
+                                                <p class="date">
+              <input type="text" name="installationDate" value="2024-02-29" class="vDateField" size="10" required="" id="id_installationDate"><span class="datetimeshortcuts">&nbsp;<a href="#">اليوم</a>&nbsp;|&nbsp;<a href="#" id="calendarlink1"><span class="date-icon" title="إختر تاريخ "></span></a></span>
+            
+            
+            <div class="help timezonewarning">ملاحظة: أنت متقدم بـ 3 ساعة من وقت الخادم.</div></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-installationTime">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_installationTime">InstallationTime:</label>
+                                            
+                                                <p class="time">
+              <input type="text" name="installationTime" value="20:18:00" class="vTimeField" size="8" required="" id="id_installationTime"><span class="datetimeshortcuts">&nbsp;<a href="#">الآن</a>&nbsp;|&nbsp;<a href="#" id="clocklink0"><span class="clock-icon" title="إختر وقت"></span></a></span>
+            
+            
+            <div class="help timezonewarning">ملاحظة: أنت متقدم بـ 3 ساعة من وقت الخادم.</div></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-openingDate">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_openingDate">OpeningDate:</label>
+                                            
+                                                <p class="date">
+              <input type="text" name="openingDate" value="2024-02-10" class="vDateField" size="10" required="" id="id_openingDate"><span class="datetimeshortcuts">&nbsp;<a href="#">اليوم</a>&nbsp;|&nbsp;<a href="#" id="calendarlink2"><span class="date-icon" title="إختر تاريخ "></span></a></span>
+            
+            
+            <div class="help timezonewarning">ملاحظة: أنت متقدم بـ 3 ساعة من وقت الخادم.</div></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-openingTime">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_openingTime">OpeningTime:</label>
+                                            
+                                                <p class="time">
+              <input type="text" name="openingTime" value="20:18:00" class="vTimeField" size="8" required="" id="id_openingTime"><span class="datetimeshortcuts">&nbsp;<a href="#">الآن</a>&nbsp;|&nbsp;<a href="#" id="clocklink1"><span class="clock-icon" title="إختر وقت"></span></a></span>
+            
+            
+            <div class="help timezonewarning">ملاحظة: أنت متقدم بـ 3 ساعة من وقت الخادم.</div></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-dismantleDate">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_dismantleDate">DismantleDate:</label>
+                                            
+                                                <p class="date">
+              <input type="text" name="dismantleDate" value="2024-02-21" class="vDateField" size="10" required="" id="id_dismantleDate"><span class="datetimeshortcuts">&nbsp;<a href="#">اليوم</a>&nbsp;|&nbsp;<a href="#" id="calendarlink3"><span class="date-icon" title="إختر تاريخ "></span></a></span>
+            
+            
+            <div class="help timezonewarning">ملاحظة: أنت متقدم بـ 3 ساعة من وقت الخادم.</div></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-dismantleTime">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_dismantleTime">DismantleTime:</label>
+                                            
+                                                <p class="time">
+              <input type="text" name="dismantleTime" value="16:22:00" class="vTimeField" size="8" required="" id="id_dismantleTime"><span class="datetimeshortcuts">&nbsp;<a href="#">الآن</a>&nbsp;|&nbsp;<a href="#" id="clocklink2"><span class="clock-icon" title="إختر وقت"></span></a></span>
+            
+            
+            <div class="help timezonewarning">ملاحظة: أنت متقدم بـ 3 ساعة من وقت الخادم.</div></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-handOverDateTime">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required">HandOverDateTime:</label>
+                                            
+                                                <p class="datetime">
+              التاريخ: <input type="text" name="handOverDateTime_0" value="2024-02-07" class="vDateField" size="10" required="" id="id_handOverDateTime_0"><span class="datetimeshortcuts">&nbsp;<a href="#">اليوم</a>&nbsp;|&nbsp;<a href="#" id="calendarlink4"><span class="date-icon" title="إختر تاريخ "></span></a></span>
+            
+            <br>
+              الوقت: <input type="text" name="handOverDateTime_1" value="16:18:00" class="vTimeField" size="8" required="" id="id_handOverDateTime_1"><span class="datetimeshortcuts">&nbsp;<a href="#">الآن</a>&nbsp;|&nbsp;<a href="#" id="clocklink3"><span class="clock-icon" title="إختر وقت"></span></a></span>
+            
+            
+            <div class="help timezonewarning">ملاحظة: أنت متقدم بـ 3 ساعة من وقت الخادم.</div></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-note">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_note">Note:</label>
+                                            
+                                                <input type="text" name="note" value="dded" class="vTextField" maxlength="250" required="" id="id_note">
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-proimg">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_proimg">Proimg:</label>
+                                            
+                                                <p class="file-upload">حالياً: <a href="/media/soft2.jpg">soft2.jpg</a><br>
+            تعديل:
+            <input type="file" name="proimg" accept="image/*" id="id_proimg"></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+                    <div class="form-row field-pdffile">
+                        
+                        
+                            <div>
+                                
+                                    <div class="flex-container">
+                                        
+                                            <label class="required" for="id_pdffile">Pdffile:</label>
+                                            
+                                                <p class="file-upload">حالياً: <a href="/media/dision.pdf">dision.pdf</a><br>
+            تعديل:
+            <input type="file" name="pdffile" id="id_pdffile"></p>
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    </div>
+                
+            </fieldset>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="submit-row">
+            
+            <input type="submit" value="احفظ" class="default" name="_save">
+            
+            <input type="submit" value="احفظ وأضف آخر" name="_addanother">
+            <input type="submit" value="احفظ واستمر بالتعديل" name="_continue">
+            
+            
+                
+                <a href="/admin/orders/joborderform/13/delete/" class="deletelink">احذف</a>
+            
+            
+            </div>
+            
+            
+            
+                <script id="django-admin-form-add-constants" src="/static/admin/js/change_form.js" async="">
+                </script>
+            
+            
+            
+            
+            <script id="django-admin-prepopulated-fields-constants" src="/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
+            </script>
+            
+            
+            </div>
+            </form>def render_pdf_view(request):
+            template_path = 'your_template_for_job_order_form_pdf.html'
+            context = {'myvar': 'this is your template context'}
+            # Create a Django response object, and specify content_type as pdf
+            response = HttpResponse(content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+            # find the template and render it.
+            template = get_template(template_path)
+            html = template.render(context)
+        
+            # create a pdf
+            pisa_status = pisa.CreatePDF(
+               html, dest=response)
+            # if error then show some funny view
+            if pisa_status.err:
+               return HttpResponse('We had some errors <pre>' + html + '</pre>')
+            return response
+        #   ############################custom-render-pdf-veiw
+        def custom_pdf_view(request,*args,**kwargs):
+          pk = kwargs.get('pk')
+          joborder = get_object_or_404(JobOrderForm,id=pk)
+          template_path = 'your_template_for_job_order_form_pdf.html'
+          context = {'joborder': joborder}
+          # Create a Django response object, and specify content_type as pdf
+          response = HttpResponse(content_type='application/pdf')
+          response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+            # find the template and render it.
+          template = get_template(template_path)
+          html = template.render(context)
+          # create a pdf
+          pisa_status = pisa.CreatePDF(
+             html, dest=response)
+          # if error then show some funny view
+          if pisa_status.err:
+             return HttpResponse('We had some errors <pre>' + html + '</pre>')
+          
+          return response
+        ##############################################

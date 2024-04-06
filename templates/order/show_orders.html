@@ -1,0 +1,45 @@
+{%extends 'based.html'%}
+{%block title%}orders{%endblock%}
+{%block content%}
+<div class="form-container  divbsinup bg-dark text-light "dir = 'rtl'>
+    <h2>الطلبات</h2>
+    <hr>
+    {%if request.user.is_authenticated and not request.user.is_anonymous%}
+        {%if all_order%}
+        {%if all_order.count > 0%}
+        <table class="table table-hover table-dark text-center " style='vertical-align: middle'>
+        <thead>
+            <tr>
+              <th scope="col">رقم الطلب</th>
+            
+              <th scope="col">الكمية</th>
+              <th scope="col">حالة الطلب</th>
+            </tr>
+          </thead>
+          <tbody>
+        {%endif%}
+        {%for orders in all_order%}
+         <tr>
+            <th scope="row">{{orders.id}}</th>
+            <td>{{orders.items_count}}</td>
+            <td>
+                {%if orders.is_finished%}
+                تم انهاء الطلب
+                {%else%}
+                لم ليتم انهاء الطلب
+                {%endif%}
+            </td>
+         <tr>
+        {%endfor%}
+        {%if all_order.count > 0%}
+             </tbody>
+            </table>
+        {%endif%}
+        {%else%}
+          <h3 class="alert alert-warning text-center" style="padding:10px 0 10px 0;margin:0px 100px 0px 100px">عرض الطلبات<h3>
+        {%endif%}
+    {%else%}
+    <h3 class = "alert alert-warning text-center"> يجب عليك تسجيل الدخول <a href = "{%url 'sinin'%}">تسجيل</a> </h3>
+    {%endif%}
+</div>
+{%endblock%}

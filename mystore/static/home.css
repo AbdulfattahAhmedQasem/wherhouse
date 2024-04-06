@@ -1,0 +1,329 @@
+body{
+    background: #4f4f4f !important;
+    padding-top: 78px !important;
+}
+.but{
+    margin-left: 5px;
+}
+.carim:hover{
+    padding:10px;
+    width:350px;
+}
+.fixedimg{
+    background-attachment: fixed;
+    background-size: cover;
+    height: 250px;
+  }
+  .fixedimg1{
+    background-image: url(image/شعار.jpg);
+  }
+  .fixedimg2{
+    background-image: url(image/شعار.jpg);
+  }
+  .fixedimg3{
+    background-image: url(image/شعار.jpg);
+  }
+  .navbar-brand , .nav-item a{
+    transition:0,5s;
+}
+.navbar-brand:hover{
+    text-shadow:10px 10px 20px #fff,
+    -10px -10px 20px #fff;
+}
+.nav-item:hover{
+    padding-left:10px;
+}
+.navbar{
+    background-color: #232930de !important; 
+}
+.fa {
+    font-size: 25px !important;
+    width: 25px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    
+  }
+  
+  .fa:hover {
+      opacity: 0.7 !important;
+  }
+  * {box-sizing: border-box}
+
+
+/* Set a style for all buttons */
+button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px !important;
+  border: none;
+  cursor: pointer;
+  position: relative !important;
+  justify-content: center !important;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+
+/* fjeljffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff*/
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+/* end date */
+
+
+.form-container button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #45a049;
+}
+.my-count{
+  color:darkred;
+  font-size: 20px;
+  font-weight: bold;
+  border:1px solid darkred;
+  padding: 2px 10px;
+  border-radius:50px;
+}
+.card{
+  width: 18rem; 
+  margin: 10px;
+  position: relative;
+}
+.product-quantity{
+position: absolute;
+top: 0;
+left: 0;
+background-color: #e0e0e0;
+border-radius: 0 0 0 5px;
+padding: 5px;
+color: red;
+font-size: 21px;
+font-weight: bold;
+}
+/* jobOrderForm */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+.bas{
+  width:60%;
+  border:1px solid darkblue;
+  padding:10px;
+  background-color:rgb(221, 221, 221);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+header div{
+  width:50%;
+  padding:10px;
+}
+header div h1{
+  display:inline;
+  float:right
+}
+main section{
+  margin-bottom: 15px;
+}
+.str-pict{
+  float:right;
+}
+main section .in-put{
+  width: 40%;
+}
+main .sec-btn{
+  margin-top: 10px;
+}
+.handOverDateTime input{
+  width: 50%;
+}
+/* "id_dismantleDate" */
+.class-textarea{
+  width: 600px;
+    height: 200px;
+}
+.jobordertype{
+  width:200px;
+  padding: 5px;
+}
+.typeorder{
+  margin-left: 50px;
+}
+.submitsend{
+  display: block;
+  padding: 10PX;
+  width: 300px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 24px;
+  margin: 10px;
+}
+.div-select select{
+  width: 250px;
+  padding: 6px;
+}
+.div-secandline{
+  margin-top:16px !important;
+}
+.div-hand-over-Date{
+  margin-top:10px;
+}
+.div-hand-label{
+  margin-top: 7px;
+}
+.div-hand-over-Date input{
+  margin-top:7px;
+  width:24%;
+}
+.div-baseck input{
+  border-radius: 14px;
+  padding: 6px;
+  margin:5px
+}
+input[type=submit]{
+      width: 21%;
+    padding: 10PX;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* ياتينيا */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  margin-top: 20px;
+}
+
+.card-product {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-product:hover {
+  transform: scale(1.03);
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card-body {
+  background-color: #343a40;
+  padding: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.card-title {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #d6d8db;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  color: #fff;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.modal-footer {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-star-o {
+  font-size: 24px;
+  color: #ff5757;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .card-product {
+      width: 100%;
+  }
+}

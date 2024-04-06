@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStore | {%block title%}{%endblock%}</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+  {%include 'partials/_navbar.html'%}
+    {% block content%}
+    {% endblock%}
+    {%include 'partials/_footer.html'%}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="{% static 'jquery-3.3.1.slim.min.js' %}"></script>         
+    <script src="{% static 'popper.min.js' %}"></script> 
+    <script src="{% static 'js/bootstrap.min.js'%} "></script> 
+    <script>
+      document.getElementById('id_installationDate').attributes['type'].value = 'date';
+      document.getElementById('id_installationTime').attributes['type'].value = 'time';
+      document.getElementById("id_dismantleDate").attributes["type"].value = "date";
+      document.getElementById("id_dismantleTime").attributes["type"].value = "time";
+      document.getElementById("id_openingDate").attributes["type"].value = "date";
+      document.getElementById("id_openingTime").attributes["type"].value = "time";
+      document.getElementById('id_handOverDateTime').attributes['type'].value = 'datetime-local';
+      document.getElementById("id_date").attributes["type"].value = "date";
+      document.getElementById('id_jobOrderType').className = 'jobordertype col';
+      {% comment %} create textarea {% endcomment %}
+      var textinput = document.getElementById("id_note");
+      var textarea = document.createElement('textarea');
+      textarea.value = textinput.value;
+      textarea.id = textinput.id;
+      textarea.name = textinput.name;
+      textarea.className = 'class-textarea';
+      textinput.parentNode.replaceChild(textarea,textinput);
+      {% comment %} end create textarea {% endcomment %}
+      function mycopy(name){
+        var rang =document.createRange();
+        rang.selectNode(document.getElementById(name));
+        window.getSelection().removeAllRanges(); // clear current selected
+        window.getSelection().addRange(rang);// to select text
+        document.execCommand("copy");//to copy
+        window.getSelection().removeAllRanges();//to select
+      }
+      $(document).ready(function(){
+        $("#exampleModalregister").on('shown.bs.modal',function(){
+          $(this).find("#Inputqu").focus();
+          $(this).find("#Inputqu").select();
+        });
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{%extends 'based.html'%}
+{%block title%}sinUp{%endblock%}
+{%block content%}
+<hr class="my-4">
+<div class="fixedimg fixedimg3"></div>
+<div class='container' dir = 'rtl'>
+    <div class="form-container  divbsinup bg-dark text-light "dir = 'rtl'>
+      <h2>Sign Up:تسجيل الدخول</h2>
+      <hr>
+          {%include 'partials/_alertmessage.html'%}
+          {%if is_add%}
+         <form action="" method="POST" style='display:none;'>
+          {%else%}
+          <form action="" method="POST">
+          {%endif%}
+            {%csrf_token%}  
+          <label for="name">Name:الاسم</label><br>
+          <input type="text"  name="username" autocomplete="off" value="{{fname}}"  ><br>
+          <label for="password">email:الاميل</label><br>
+          <input type="email"  name="email"  autocomplete="off" value = "{{femail}}" ><br>
+          <label for="password">Password:كلمة المرور</label><br>
+          <input type="password" name="password" autocomplete='off' value="{{fpassword}}" ><br>
+          <div class = 'row'>
+            <div class = 'col'>
+              <label for = "address">address:العنوان</label>
+               <input type='text' id='address' name='address' autocomplete='off' value="faddress" >
+            </div>
+            <div class = 'col'>
+              <label for = "city">city:المدينة</label>
+              <input type='text'  name='city' autocomplete='off' value="{{fcity}}" >
+            </div>
+          </div>
+          <div class='mb-3 form-check' >
+            <input type='checkbox' class='form-check-input'name='accept' >
+            <label class='form-check-label' for="exampleCheck1">اوافق على جميع الشروط</label>
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+</div>
+  <hr class="my-4">
+  <div class="fixedimg fixedimg3"></div>
+{%endblock%}

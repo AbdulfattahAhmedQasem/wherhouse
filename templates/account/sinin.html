@@ -1,0 +1,33 @@
+{%extends 'based.html'%}
+{%block title%}sinIn{%endblock%}
+{%block content%}
+<div class="fixedimg fixedimg3"></div>
+<div class='container'>
+  <h2 class='text-center'>Sign in:تسجيل الدخول</h2>
+  <hr>
+  {%if request.user.is_authenticated%}
+<h3 class='alert alert-secondary text-center'>welcome:{{request.user}}
+  <a href="{% url 'logout'%}">logout</a>
+</h3>
+
+<form method="POST" style='display:none'>
+  {%else%}
+  <form method="POST">
+{%endif%}
+          {%csrf_token%}
+    <div class="form-container  divbsinup bg-dark text-light "dir = 'rtl'>
+       
+         
+         {%include 'partials/_alertmessage.html'%}
+          <label for="password">name:الاسم</label><br>
+          <input type="text" id="text" name="name" autocomplete="off" required value="{{name}}"><br>
+          <label for="password">Password:كلمة المرور</label><br>
+          <input type="password" id="password" name="password" required value='{{password}}'><br>
+          <button type="submit" name='btnlogin'>Sign in:تسجيل دخول</button>
+        </form>
+        <h5 class=' text-center' style="margin:10px">ليس لدي حساب <a href="{%url 'sinup'%}">انشاء حساب</a></h5>
+      </div>
+</div>
+  <hr class="my-4">
+  <div class="fixedimg fixedimg3"></div>
+{%endblock%}

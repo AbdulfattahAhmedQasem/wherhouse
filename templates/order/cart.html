@@ -1,0 +1,54 @@
+{%extends 'based.html'%}
+{%block title%}سلة المشتريات{%endblock%}
+{%load static%}
+{%block content%}
+<div class="form-container  divbsinup bg-dark text-light "dir = 'rtl'>
+    <h2>سلة المشتريات   : {{order.user.username}}</h2>
+    <hr>
+    {%if request.user.is_authenticated and not request.user.is_anonymous%}
+    {%if order%}
+     <h2>{{order.user.username}}</h2>
+     <h5>
+      <a  href="{%url 'shownumberjob'%}" class='btn btn-outline-warning float-start m-1'>اتمام عملية الطلب</a>
+      <a  href="{%url 'index'%}" class='btn btn-outline-warning float-start m-1'>مواصلة التسوق</a>
+      <h5 class='text-center col-sm 3' >  عدد الطلبات <span class='my-num text-center'>{{details.count}}</span>
+      </h5>
+     </h5>
+     <table class="table table-hover table-dark text-center " style='vertical-align: middle'>
+        <thead>
+            <tr>
+              <th scope="col">الرقم</th>
+              <th scope="col">اسم المنتج</th>
+              <th scope="col">صورة المنتج</th>
+              <th scope="col">الكمية</th>
+              <th scope="col">تحكم</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for lin in details%}
+            <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{lin.product.name}}</td>
+              {%if lin.product.photo.url != null%}
+              <td><img src = "{{lin.product.photo.url}}" style ='width:80px;height:80px'></td>
+              {%else%}
+              <td><img src="{% static "imageprod/1.png" %}" style ='width:80px;height:80px' alt="..." style="height:180px"></td>
+              {%endif%}
+              <td><a href = "{%url 'sub_qty'  orderdetalsid=lin.id%}" class = "btn btn-outline-warning btn-sm" style="margin:10px;">-</a>{{lin.quantity}}<a href = "{%url 'add_qty'  orderdetalsid=lin.id%}" class = "btn btn-outline-warning btn-sm" style="margin:10px;">+</a></td>
+              <td><a href = "{%url 'delete_cart' orderdetalsid=lin.id%}" class = "btn btn-outline-danger btn-sm">حذف المنتج</a></td>
+            </tr>
+            {%empty%}
+            لايوج اي طلب خاص بالمستخدم الاتي
+            {%endfor%}
+          </tbody>
+      </table>
+     {%else%}
+     لايوج اي طلب خاص بالمستخدم الاتي
+     {%endif%}
+     {%else%}
+     <h5 class = "alert alert-warning text-center"> يجب عليك تسجيل الدخول <a href = "{%url 'sinin'%}">تسجيل الدخول</a></h5>
+    {%endif%}
+     
+
+</div>
+{%endblock%}

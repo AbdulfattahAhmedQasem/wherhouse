@@ -1,0 +1,44 @@
+{% extends 'based.html'%}
+{%load static%}
+{%block title%}HOME{%endblock%}
+{% block content%}
+<div class="container-fluid p-0">
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner ">
+        {%for pro in notimg%}
+          <div class="carousel-item{% if forloop.first %} active{% endif %}">
+              <img src="{{pro.imageNotices.url}}" class="d-block w-100" alt="..." style="width: 150px; height: 500px;">
+              <div class="carousel-caption">
+                  <h1>mustbee</h1>
+                  <a href="https://mustbee.com/ar/" target="_blank">View mustbee</a>
+              </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div> 
+    <hr class="my-4">
+    {%include 'partials/_alertmessage.html'%}
+    <h1 class="text-center text-light">المجموعات الرئيسية</h1>
+    <hr class = "my-4">
+    <div class="container-fluid">
+      <div class="row justify-content-center"style="border-radius:7px;padding:20px">
+        <!--bisic-->
+        {%for pro in prohome%}
+        <div class="card bg-dark col-lg-3 col-md-4 col-sm-6 col-xs-12 " style="width: 18rem;margin:10px;">
+           <a href="{% url 'tables' pro_id=pro.id%}">
+            <img src="{{pro.photocat.url}}" class="card-img-top" alt="..." style="height: 250px;padding: 3px;border-radius: 17px;">
+            <div class="card-body text-light">
+              <h2 class="card-title text-center">{{pro.name}}</h2>
+            </div>
+           </a>
+        </div>
+        {% endfor %}
+        <!--bisic-->
+      </div>
+    </div>
+{% endblock%}

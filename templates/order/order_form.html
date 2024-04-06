@@ -1,0 +1,413 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyStore | {%block title%}Job-order-Form{%endblock%}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        form {
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        @media only screen and (max-width: 600px) {
+            form {
+                padding: 0.5rem;
+            }
+
+            input, select, textarea {
+                margin-bottom: 0.5rem;
+            }
+
+            input[type="submit"] {
+                padding: 0.3rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+  {%include 'partials/_navbar.html'%}
+   
+    <div class="container bas ">
+        <header style = 'margin-top:112px'>
+            <div class="row">
+                    <img class = 'col-auto' src="{%static 'Mustbeelogo.png'%}"   alt="">
+                    <h1 class = 'col text-right'>Job-order-Form</h1>
+            </div>
+        </header>
+        <main>
+            <form class = 'formsinput' action="{% url 'jobOrderFrom' %}" method="POST" enctype="multipart/form-data">
+                {%include 'partials/_alertmessage.html'%}
+                {% csrf_token %}
+                    <div class="mb-3 div-baseck">
+                        <div class = 'row'>
+                            <div class = 'col-8'>
+                                <div class = 'row g-3 align-items-center'>
+                                    <div class = 'col-auto'>
+                                        <label class = 'col-form-label'>no</label>
+                                    </div>
+                                    <div class = 'col-auto'>
+                                        {% comment %} {{forms.numberproject}} {% endcomment %}
+                                        <input class='forms' type="number" name="numberproject" required="" id="id_numberproject">
+                                    </div>
+                                    <div class = 'col-auto'>
+                                        <label class = 'col-form-label'>رقم امر العمل</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = 'col-4'>
+                                <div class = 'row g-3 align-items-center'>
+                                    <div class = 'col-auto'>
+                                        <label class = 'col-form-label'>date</label>
+                                    </div>
+                                    <div class = 'col-auto'>
+                                        <input class='forms' type="date" name="date" required="" id="id_date">
+                                    </div>
+                                    <div class = 'col-auto'>
+                                        <label class = 'col-form-label'>التاريخ</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--start lin tow-->
+                        <div class = 'row div-secandline'>
+                            <div class = 'col-2'>
+                                <label class = 'col-form-label'>job-order-type</label>
+                            </div>
+                            <div class = 'col-8'>
+                                    <div class='m-3 text-center div-select'>
+                                        {% comment %} {{forms.jobOrderType}} {% endcomment %}
+                                        <select name="jobOrderType" required="" id="id_jobOrderType" class="jobordertype col">
+                                            <option value="" selected="">---------</option>
+                                          
+                                            <option value="sample">عينة</option>
+                                          
+                                            <option value="rent">إيجار</option>
+                                          
+                                            <option value="sale">بيع</option>
+                                          
+                                          </select>
+                                    </div>
+                            </div>
+                            <div class = 'col-2'>
+                                <label class = 'col-form-label'>نوع امر العمل</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                             <!--fileimage-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> fileimage</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.proimg}} {% endcomment %}
+                                        <input class='forms' type="file" name="proimg" accept="image/*" id="id_proimg">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'>اختر صورة</label>
+                                    </div>
+                                </div>
+                            </div>
+                             <!--filepdf-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> filepdf</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.pdffile}} {% endcomment %}
+                                        <input class='forms' type="file" name="pdffile" id="id_pdffile">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'>اختر الملف</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Clinet-name-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> Clinet-name :</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.clientName}} {% endcomment %}
+                                        <input class='forms' type="text" name="clientName" maxlength="100" required="" id="id_clientName">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'> : اسم العميل</label>
+                                    </div>
+                                </div>
+                            </div>
+                             <!--coordination-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> Coordination:</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.coordination}} {% endcomment %}
+                                        <input class='forms' type="text" name="coordination" maxlength="100" required="" id="id_coordination">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'>مسؤول التنسيق في الموقع</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--project-manager-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> ProjectManager:</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.projectManager}}   {% endcomment %}
+                                         <input class='forms' type="text" name="projectManager" maxlength="100" required="" id="id_projectManager">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'>مدير المشروع</label>
+                                    </div>
+                                </div>
+                            </div>
+                               <!--venueLocation-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> VenueLocation:</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.venueLocation}} {% endcomment %}
+                                        <input class='forms' type="text" name="venueLocation" required="" id="id_venueLocation">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'>مكان التركيب</label>
+                                    </div>
+                                </div>
+                            </div>
+                               <!--installation-date-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> InstallationDate:</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.installationDate}} {% endcomment %}
+                                        <input class='forms' type="date" name="installationDate" required="" id="id_installationDate">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'>تاريخ التركيب</label>
+                                    </div>
+                                </div>
+                            </div>
+                               <!--installation-time-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> installation-time :</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.installationTime}} {% endcomment %}
+                                        <input class='forms' type="time" name="installationTime" required="" id="id_installationTime">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'>وقت التركيب</label>
+                                    </div>
+                                </div>
+                            </div>
+                                 <!--opening-date-->
+                                 <div class ="col-6">
+                                    <div class='row g-3 align-items-center'>
+                                        <div class="col-auto">
+                                            <label class = 'col-form-label'> openingDate:</label>
+                                        </div>
+                                        <div class='col-auto'>
+                                            {% comment %} {{forms.openingDate}} {% endcomment %}
+                                            <input class='forms' type="date" name="openingDate" required="" id="id_openingDate">
+                                        </div>
+                                        <div class='col-auto'>
+                                            <label class='col-form-label'>تاريخ الافتتاح</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                   <!--opening-time-->
+                                <div class ="col-6">
+                                    <div class='row g-3 align-items-center'>
+                                        <div class="col-auto">
+                                            <label class = 'col-form-label'> opening-time :</label>
+                                        </div>
+                                        <div class='col-auto'>
+                                            {% comment %} {{forms.openingTime}} {% endcomment %}
+                                            <input class='forms' type="time" name="openingTime" required="" id="id_openingTime">
+                                        </div>
+                                        <div class='col-auto'>
+                                            <label class='col-form-label'>وقت الافتتاح</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                     <!--dismantle-date-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> Dismantle-date:</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.dismantleDate}} {% endcomment %}
+                                        <input class='forms' type="date" name="dismantleDate" required="" id="id_dismantleDate">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'>تارخ الفك</label>
+                                    </div>
+                                </div>
+                            </div>
+                               <!--dismantle-time-->
+                            <div class ="col-6">
+                                <div class='row g-3 align-items-center'>
+                                    <div class="col-auto">
+                                        <label class = 'col-form-label'> dismantle-time :</label>
+                                    </div>
+                                    <div class='col-auto'>
+                                        {% comment %} {{forms.dismantleTime}} {% endcomment %}
+                                        <input class='forms' type="time" name="dismantleTime" required="" id="id_dismantleTime">
+                                    </div>
+                                    <div class='col-auto'>
+                                        <label class='col-form-label'>وقت الفك</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--hand-over-date input-->
+                        <div class= 'row'>
+                            <div class = 'col-auto div-hand-label'>
+                                <label class='col-form-label'>hand-over-Date</lable>
+                            </div>
+                            <div class = 'col-8 text-center div-hand-over-Date'>
+                                {% comment %} {{forms.handOverDateTime}} {% endcomment %}
+                                <input class='forms' type="datetime-local" name="handOverDateTime" required="" id="id_handOverDateTime">
+                            </div>
+                            <div class='col-auto div-hand-label'>
+                                <label class='col-form-label'>تاريخ ووقت تسليم المشروع</label>
+                            </div>
+                        </div>
+                        <section class='text-center m-1 p-2'>
+                            <textarea id="id_note" name="note" class="class-textarea" placeholder="enter the note"></textarea>
+                        </section>
+                        <section class='text-center'>
+                            <input type='submit'>
+                        </section>
+                    </div>
+            </form>
+
+        </main>
+    </div>
+    {% comment %} {%include 'partials/_footer.html'%} {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="{% static 'jquery-3.3.1.slim.min.js' %}"></script>         
+    <script src="{% static 'popper.min.js' %}"></script> 
+    <script src="{% static 'js/bootstrap.min.js'%} "></script> 
+    <script>
+      document.getElementById('id_installationDate').attributes['type'].value = 'date';
+      document.getElementById('id_installationTime').attributes['type'].value = 'time';
+      document.getElementById("id_dismantleDate").attributes["type"].value = "date";
+      document.getElementById("id_dismantleTime").attributes["type"].value = "time";
+      document.getElementById("id_openingDate").attributes["type"].value = "date";
+      document.getElementById("id_openingTime").attributes["type"].value = "time";
+      document.getElementById('id_handOverDateTime').attributes['type'].value = 'datetime-local';
+      document.getElementById("id_date").attributes["type"].value = "date";
+      document.getElementById('id_jobOrderType').className = 'jobordertype col';
+      {% comment %} create textarea {% endcomment %}
+      var textinput = document.getElementById("id_note");
+      var textarea = document.createElement('textarea');
+      textarea.value = textinput.value;
+      textarea.id = textinput.id;
+      textarea.name = textinput.name;
+      textarea.className = 'class-textarea';
+      textinput.parentNode.replaceChild(textarea,textinput);
+      {% comment %} end create textarea {% endcomment %}
+      function mycopy(name){
+        var rang =document.createRange();
+        rang.selectNode(document.getElementById(name));
+        window.getSelection().removeAllRanges(); // clear current selected
+        window.getSelection().addRange(rang);// to select text
+        document.execCommand("copy");//to copy
+        window.getSelection().removeAllRanges();//to select
+      }
+      $(document).ready(function(){
+        $("#exampleModalregister").on('shown.bs.modal',function(){
+          $(this).find("#Inputqu").focus();
+          $(this).find("#Inputqu").select();
+        });
+      });
+    </script>
+</body>
+</html>

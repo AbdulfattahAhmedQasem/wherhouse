@@ -1,0 +1,53 @@
+#header{
+    background:#5A020Cce;
+    color: #fff;
+}
+#head{
+    color:bisque;
+}
+.module h2, .module caption, .inline-group h2{
+    background: rgba(119, 13, 25, 0.808)
+}
+div.breadcrumbs{
+    background:rgba(119,13,25,0.808)
+}
+.selector-chosen h2,.selector .selector-available h2{
+    background:rgba(119,13,25,0.808) !important;
+    color: #fff !important;
+}
+.button.default, 
+input[type=submit].default,
+ .button.default,
+  input[type=submit].default, 
+  .button.default:hover,
+   input[type=submit].default,
+   .button, 
+   input[type=submit], 
+   input[type=button],
+    .button,
+     input[type=submit], 
+     input[type=button],
+      .button, 
+      input[type=submit],
+       input[type=button]{
+        background:rgba(119,13,25,0.808) !important;
+        
+       }
+.button.default:active, 
+input[type=submit].default:active,
+ .button.default:focus,
+  input[type=submit].default:focus, 
+  .button.default:hover,
+   input[type=submit].default:hover,
+   .button:active, 
+   input[type=submit]:active, 
+   input[type=button]:active,
+    .button:focus,
+     input[type=submit]:focus, 
+     input[type=button]:focus,
+      .button:hover, 
+      input[type=submit]:hover,
+       input[type=button]:hover{
+        background:rgba(157, 25, 40, 0.808) !important;
+        
+       }
